@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
 
@@ -34,7 +33,9 @@ export function Logo({
       className={`inline-flex items-center ${className}`}
       aria-label={SITE.brandName}
     >
-      <Image
+      {/* Native img: Next/Image is unreliable with local SVGs */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={src}
         alt={SITE.brandName}
         width={isHorizontal ? 220 : 48}
@@ -42,10 +43,9 @@ export function Logo({
         className={
           isHorizontal
             ? "h-11 w-auto max-w-[170px] object-contain object-left sm:max-w-[200px] md:h-12 md:max-w-[230px]"
-            : "h-10 w-10 md:h-11 md:w-11"
+            : "h-10 w-10 object-contain md:h-11 md:w-11"
         }
-        priority
-        unoptimized
+        decoding="async"
       />
     </Link>
   );
@@ -59,14 +59,15 @@ export function BrandMark({
   className?: string;
 }) {
   return (
-    <Image
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
       src={LOGOS.symbol[variant]}
       alt=""
       width={200}
       height={200}
       className={className}
-      unoptimized
       aria-hidden
+      decoding="async"
     />
   );
 }
