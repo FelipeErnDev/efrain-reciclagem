@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --fenix-black: #0a0a0a;
+  --fenix-ink: #121212;
+  --fenix-green: #007753;
+  --fenix-green-deep: #004f4d;
+  --fenix-green-soft: #009266;
+  --fenix-accent: #007753;
+  --fenix-white: #ffffff;
+  --fenix-muted: #6b6b6b;
+  --fenix-line: #e8e8e8;
+  --fenix-surface: #f4f4f2;
+  --fenix-whatsapp: #25d366;
+  --background: var(--fenix-white);
+  --foreground: var(--fenix-black);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-fenix-black: var(--fenix-black);
+  --color-fenix-ink: var(--fenix-ink);
+  --color-fenix-green: var(--fenix-green);
+  --color-fenix-green-deep: var(--fenix-green-deep);
+  --color-fenix-green-soft: var(--fenix-green-soft);
+  --color-fenix-accent: var(--fenix-accent);
+  --color-fenix-white: var(--fenix-white);
+  --color-fenix-muted: var(--fenix-muted);
+  --color-fenix-line: var(--fenix-line);
+  --color-fenix-surface: var(--fenix-surface);
+  --color-fenix-whatsapp: var(--fenix-whatsapp);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--fenix-green) 25%, white);
+  color: var(--fenix-black);
+}
+
+.font-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+.container-fenix {
+  width: min(1180px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .container-fenix {
+    width: min(1180px, calc(100% - 4rem));
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-fenix {
+    width: min(1180px, calc(100% - 5rem));
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-green {
+  background: var(--fenix-green);
+  color: var(--fenix-white);
+}
+
+.btn-green:hover {
+  background: var(--fenix-green-soft);
+}
+
+.btn-dark {
+  background: var(--fenix-ink);
+  color: var(--fenix-white);
+}
+
+.btn-dark:hover {
+  background: #1c1c1c;
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: var(--fenix-white);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.section-title {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--fenix-black);
+  line-height: 1.15;
+}
+
+.metal-grain {
+  position: relative;
+}
+
+.metal-grain::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
