@@ -13,7 +13,7 @@ export function ExclusionBanner() {
             />
             <div>
               <h2 className="font-display text-lg font-bold text-white md:text-xl">
-                Não trabalhamos com os seguintes materiais:
+                Atenção na entrega dos materiais:
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-white/90 md:text-base">
                 {EXCLUDED_MATERIALS}

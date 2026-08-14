@@ -36,7 +36,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const EXCLUDED_MATERIALS =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.";
+  "Materiais molhados, contaminados com restos orgânicos ou misturados de forma que inviabilize a separação. Em caso de dúvida, fale conosco pelo WhatsApp.";
 
 export const DIFFERENTIALS = [
   "Compromisso com a preservação do meio ambiente.",
