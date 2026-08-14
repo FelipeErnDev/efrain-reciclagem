@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { SITE, whatsappUrl } from "@/lib/constants";
 
@@ -9,13 +10,22 @@ export function HomeHero() {
   return (
     <section className="relative min-h-[min(88vh,820px)] overflow-hidden bg-fenix-black text-white">
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-fenix-green-deep via-fenix-black to-fenix-green metal-grain"
+        className="absolute inset-0"
         initial={reduce ? false : { scale: 1.08 }}
         animate={{ scale: 1 }}
         transition={{ duration: 8, ease: [0.22, 1, 0.36, 1] }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,119,83,0.35),transparent_55%)]" />
+      >
+        <Image
+          src="/materials/papelao.jpg"
+          alt="Materiais recicláveis"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+      </motion.div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/72 to-black/45" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,119,83,0.22),transparent_55%)]" />
 
       <div className="container-fenix relative z-[2] flex min-h-[min(88vh,820px)] flex-col justify-center py-20 md:py-24">
         <motion.div

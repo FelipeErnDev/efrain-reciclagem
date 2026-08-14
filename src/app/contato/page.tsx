@@ -11,7 +11,11 @@ export const metadata: Metadata = {
 export default function ContatoPage() {
   return (
     <>
-      <PageHero title="Contato" breadcrumb="Contato" />
+      <PageHero
+        title="Contato"
+        breadcrumb="Contato"
+        image="/materials/latinha.jpg"
+      />
       <ContactSection />
     </>
   );

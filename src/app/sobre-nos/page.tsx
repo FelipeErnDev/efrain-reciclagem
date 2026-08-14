@@ -16,7 +16,11 @@ export const metadata: Metadata = {
 export default function SobreNosPage() {
   return (
     <>
-      <PageHero title="Sobre nós" breadcrumb="Sobre nós" />
+      <PageHero
+        title="Sobre nós"
+        breadcrumb="Sobre nós"
+        image="/materials/papelao.jpg"
+      />
       <AboutSection showCta={false} />
       <MissionVisionValues />
       <Differentials />

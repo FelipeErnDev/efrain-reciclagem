@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { ABOUT_LICENSES, ABOUT_TEXT, SITE } from "@/lib/constants";
@@ -15,11 +16,13 @@ export function AboutSection({
     <section className="bg-fenix-white py-14 md:py-20">
       <div className="container-fenix grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <Reveal>
-          <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-md bg-gradient-to-br from-fenix-green-deep to-fenix-green metal-grain">
-            <img
-              src="/brand/logo-vertical-light.svg"
-              alt={SITE.brandName}
-              className="relative z-[2] h-auto w-[55%] max-w-[220px]"
+          <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-fenix-surface">
+            <Image
+              src="/materials/ferro.jpg"
+              alt="Materiais recicláveis"
+              fill
+              className="object-cover"
+              sizes="(max-width:1024px) 100vw, 50vw"
             />
           </div>
         </Reveal>

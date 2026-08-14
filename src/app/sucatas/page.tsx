@@ -12,7 +12,11 @@ export const metadata: Metadata = {
 export default function SucatasPage() {
   return (
     <>
-      <PageHero title="Sucatas" breadcrumb="Sucatas" />
+      <PageHero
+        title="Sucatas"
+        breadcrumb="Sucatas"
+        image="/materials/metal.jpg"
+      />
       <ScrapCatalog />
       <GoogleReviewsCTA />
     </>
