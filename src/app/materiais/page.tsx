@@ -12,11 +12,7 @@ export const metadata: Metadata = {
 export default function MateriaisPage() {
   return (
     <>
-      <PageHero
-        title="Materiais"
-        breadcrumb="Materiais"
-        image="https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=2000&q=80"
-      />
+      <PageHero title="Materiais" breadcrumb="Materiais" />
       <MaterialsGrid />
       <GoogleReviewsCTA />
     </>

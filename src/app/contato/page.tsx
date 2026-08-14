@@ -11,11 +11,7 @@ export const metadata: Metadata = {
 export default function ContatoPage() {
   return (
     <>
-      <PageHero
-        title="Contato"
-        breadcrumb="Contato"
-        image="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2000&q=80"
-      />
+      <PageHero title="Contato" breadcrumb="Contato" />
       <ContactSection />
     </>
   );

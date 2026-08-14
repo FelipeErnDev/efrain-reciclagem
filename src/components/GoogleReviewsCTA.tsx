@@ -19,7 +19,7 @@ export function GoogleReviewsCTA() {
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-white/85 md:text-base">
             Veja o que dizem sobre a {SITE.brandName} e a qualidade dos nossos
-            serviços. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            serviços.
           </p>
         </Reveal>
 

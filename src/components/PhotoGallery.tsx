@@ -18,7 +18,6 @@ export function PhotoGallery({ images }: PhotoGalleryProps) {
   const items = images?.length ? images : galleryImages;
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
-
   const galleryKey = items.map((img) => img.src).join("|");
 
   useEffect(() => {
@@ -41,6 +40,8 @@ export function PhotoGallery({ images }: PhotoGalleryProps) {
     el.addEventListener("scroll", onScroll, { passive: true });
     return () => el.removeEventListener("scroll", onScroll);
   }, [items.length]);
+
+  if (items.length < 2) return null;
 
   const goTo = (i: number) => {
     const el = trackRef.current;

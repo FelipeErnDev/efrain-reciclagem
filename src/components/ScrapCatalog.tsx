@@ -103,7 +103,7 @@ export function ScrapCatalog() {
           ))}
           {filtered.length === 0 && (
             <p className="text-fenix-muted sm:col-span-2 xl:col-span-3">
-              Nenhum item nesta categoria no momento.
+              Em breve listamos aqui as sucatas disponíveis.
             </p>
           )}
         </div>

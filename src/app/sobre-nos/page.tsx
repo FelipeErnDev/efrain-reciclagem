@@ -16,11 +16,7 @@ export const metadata: Metadata = {
 export default function SobreNosPage() {
   return (
     <>
-      <PageHero
-        title="Sobre nós"
-        breadcrumb="Sobre nós"
-        image="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=2000&q=80"
-      />
+      <PageHero title="Sobre nós" breadcrumb="Sobre nós" />
       <AboutSection showCta={false} />
       <MissionVisionValues />
       <Differentials />

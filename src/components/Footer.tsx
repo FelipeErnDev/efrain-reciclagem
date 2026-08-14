@@ -24,6 +24,14 @@ function SocialIcon({
   );
 }
 
+function InstagramIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" />
+    </svg>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="bg-fenix-black text-white metal-grain">
@@ -38,17 +46,9 @@ export function Footer() {
               Coleta rápida, organizada e segura.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <SocialIcon href={SITE.social.instagram} label="Instagram">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden
-                >
-                  <path d="M12 7.2A4.8 4.8 0 1016.8 12 4.81 4.81 0 0012 7.2zm0 7.92A3.12 3.12 0 1115.12 12 3.13 3.13 0 0112 15.12zM17.76 6.96a1.12 1.12 0 11-1.12-1.12 1.12 1.12 0 011.12 1.12zM21.6 12a9.6 9.6 0 01-.06 1.1 5.55 5.55 0 01-5.44 5.44 9.6 9.6 0 01-1.1.06 9.6 9.6 0 01-1.1-.06 5.55 5.55 0 01-5.44-5.44A9.6 9.6 0 014.4 12a9.6 9.6 0 01.06-1.1 5.55 5.55 0 015.44-5.44A9.6 9.6 0 0111 5.4h2a9.6 9.6 0 011.1.06 5.55 5.55 0 015.44 5.44A9.6 9.6 0 0121.6 12zm-1.68 0a7.9 7.9 0 00-.05-.9 3.87 3.87 0 00-3.77-3.77 7.9 7.9 0 00-.9-.05h-2a7.9 7.9 0 00-.9.05 3.87 3.87 0 00-3.77 3.77 7.9 7.9 0 00-.05.9v2a7.9 7.9 0 00.05.9 3.87 3.87 0 003.77 3.77 7.9 7.9 0 00.9.05h2a7.9 7.9 0 00.9-.05 3.87 3.87 0 003.77-3.77 7.9 7.9 0 00.05-.9z" />
-                </svg>
-              </SocialIcon>
+            <SocialIcon href={SITE.social.instagram} label="Instagram">
+              <InstagramIcon />
+            </SocialIcon>
             </div>
           </div>
 

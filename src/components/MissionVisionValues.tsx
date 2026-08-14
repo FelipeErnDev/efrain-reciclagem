@@ -1,21 +1,23 @@
 import { Eye, Gem, Target } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { ABOUT_TEXT, DIFFERENTIALS } from "@/lib/constants";
 
 const ITEMS = [
   {
     title: "Missão",
     icon: Target,
-    text: "Contribuir para a economia circular e a preservação do meio ambiente, com coleta rápida, organizada e segura de materiais recicláveis.",
+    text: ABOUT_TEXT,
   },
   {
     title: "Visão",
     icon: Eye,
-    text: "Ser referência em compra e venda de materiais reciclados no Alto Vale, com transparência, agilidade e destinação correta.",
+    text: DIFFERENTIALS[0] + " " + DIFFERENTIALS[4] + " " + DIFFERENTIALS[7],
   },
   {
     title: "Valores",
     icon: Gem,
-    text: "Atendimento ágil e personalizado, equipe qualificada, equipamentos modernos e parcerias com empresas e comunidades.",
+    text: [DIFFERENTIALS[1], DIFFERENTIALS[2], DIFFERENTIALS[3], DIFFERENTIALS[5]]
+      .join(" "),
   },
 ];
 

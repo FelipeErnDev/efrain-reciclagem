@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { ABOUT_LICENSES, ABOUT_TEXT, SITE } from "@/lib/constants";
@@ -16,13 +15,11 @@ export function AboutSection({
     <section className="bg-fenix-white py-14 md:py-20">
       <div className="container-fenix grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <Reveal>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-fenix-surface">
-            <Image
-              src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=80"
-              alt="Materiais recicláveis"
-              fill
-              className="object-cover"
-              sizes="(max-width:1024px) 100vw, 50vw"
+          <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-md bg-gradient-to-br from-fenix-green-deep to-fenix-green metal-grain">
+            <img
+              src="/brand/logo-vertical-light.svg"
+              alt={SITE.brandName}
+              className="relative z-[2] h-auto w-[55%] max-w-[220px]"
             />
           </div>
         </Reveal>
@@ -46,10 +43,7 @@ export function AboutSection({
                     Razão social: {SITE.fullName}. Especialidade: compra e venda
                     de materiais reciclados em {SITE.city}/{SITE.state}.
                   </p>
-                  <p>
-                    {ABOUT_LICENSES} Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-                  </p>
+                  <p>{ABOUT_LICENSES}</p>
                 </>
               )}
             </div>

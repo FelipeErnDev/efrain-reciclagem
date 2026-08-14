@@ -7,7 +7,7 @@ export type BreadcrumbItem = {
 
 type PageHeroProps = {
   title: string;
-  image: string;
+  image?: string;
   /** Simple single crumb (legacy) */
   breadcrumb?: string;
   /** Multi-level crumbs: Home is always first */
@@ -23,10 +23,14 @@ export function PageHero({ title, breadcrumb, image, crumbs }: PageHeroProps) {
 
   return (
     <section className="relative overflow-hidden bg-fenix-black text-white">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${image})` }}
-      />
+      {image ? (
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${image})` }}
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-fenix-green-deep via-fenix-black to-fenix-green metal-grain" />
+      )}
       <div className="absolute inset-0 bg-black/72" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
