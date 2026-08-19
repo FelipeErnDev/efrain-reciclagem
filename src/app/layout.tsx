@@ -6,6 +6,8 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
 
+export const revalidate = 60;
+
 const manrope = Manrope({
   variable: "--font-body",
   subsets: ["latin"],
@@ -19,21 +21,44 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://reciclagemefrain.com.br"),
   title: {
     default: `${SITE.brandName} | Compra e venda de materiais reciclados`,
     template: `%s | ${SITE.brandName}`,
   },
   description: SITE.description,
+  applicationName: SITE.brandName,
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+      { url: "/favicon.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: SITE.brandName,
     description: SITE.tagline,
     locale: "pt_BR",
     type: "website",
+    url: "https://reciclagemefrain.com.br",
+    siteName: SITE.brandName,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 512,
+        height: 512,
+        alt: SITE.brandName,
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: SITE.brandName,
+    description: SITE.tagline,
+    images: ["/og-image.png"],
   },
 };
 

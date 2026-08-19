@@ -33,10 +33,20 @@ export function ContactSection() {
             <dl className="mt-10 space-y-6">
               <div>
                 <dt className="text-xs font-semibold tracking-[0.12em] text-fenix-muted uppercase">
-                  WhatsApp / Telefone principal
+                  WhatsApp / Telefone
                 </dt>
-                <dd className="mt-1 text-lg font-medium">{SITE.phone}</dd>
+                <dd className="mt-1 text-lg font-medium">
+                  <a
+                    href={whatsappUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-fenix-green"
+                  >
+                    {SITE.phone}
+                  </a>
+                </dd>
               </div>
+              {SITE.phones.filter((p) => p !== SITE.phone).length > 0 && (
               <div>
                 <dt className="text-xs font-semibold tracking-[0.12em] text-fenix-muted uppercase">
                   Outros telefones
@@ -49,6 +59,7 @@ export function ContactSection() {
                     ))}
                 </dd>
               </div>
+              )}
               <div>
                 <dt className="text-xs font-semibold tracking-[0.12em] text-fenix-muted uppercase">
                   E-mail
@@ -99,7 +110,7 @@ export function ContactSection() {
                   name="phone"
                   required
                   className="w-full border border-fenix-line bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-fenix-green"
-                  placeholder="(47) 98835-3434"
+                  placeholder="(47) 98845-5704"
                 />
               </label>
               <label className="block">
