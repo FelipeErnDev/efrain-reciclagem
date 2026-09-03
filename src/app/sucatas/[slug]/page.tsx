@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MaterialDetail } from "@/components/MaterialDetail";
-import { MaterialsCarousel } from "@/components/MaterialsCarousel";
 import { PageHero } from "@/components/PageHero";
-import { PhotoGallery } from "@/components/PhotoGallery";
-import {
-  getScrapBySlug,
-  getMaterialGallery,
-  scrapItems,
-} from "@/data/materials";
+import { getMaterialBySlug, getScrapBySlug, scrapItems } from "@/data/materials";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -33,23 +27,21 @@ export default async function ScrapPage({ params }: Props) {
   const item = getScrapBySlug(slug);
   if (!item) notFound();
 
+  const category = getMaterialBySlug(item.category);
+
   return (
     <>
       <PageHero
         title={item.title}
-        image={item.image}
         crumbs={[
           { label: "Sucatas", href: "/sucatas" },
+          ...(category
+            ? [{ label: category.title, href: "/sucatas" }]
+            : []),
           { label: item.title },
         ]}
       />
-      <MaterialDetail
-        title={item.title}
-        description={item.description}
-        image={item.image}
-      />
-      <PhotoGallery images={getMaterialGallery(item)} />
-      <MaterialsCarousel />
+      <MaterialDetail title={item.title} description={item.description} />
     </>
   );
 }

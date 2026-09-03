@@ -10,8 +10,13 @@ import { whatsappUrl } from "@/lib/constants";
 export function ScrapCatalog() {
   const [active, setActive] = useState<string>("all");
 
-  const filtered = useMemo(() => {
-    if (active === "all") return scrapItems;
+  const activeCategory = useMemo(
+    () => materials.find((m) => m.slug === active),
+    [active],
+  );
+
+  const subitems = useMemo(() => {
+    if (active === "all") return [];
     return scrapItems.filter((item) => item.category === active);
   }, [active]);
 
@@ -34,7 +39,7 @@ export function ScrapCatalog() {
                       : "text-fenix-muted hover:text-fenix-black"
                   }`}
                 >
-                  - Todas as sucatas
+                  - Todas as categorias
                 </button>
               </li>
               {materials.map((m) => (
@@ -79,34 +84,93 @@ export function ScrapCatalog() {
           </div>
         </aside>
 
-        <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
-          {filtered.map((item, i) => (
-            <Reveal key={item.id} delay={(i % 3) * 0.06}>
-              <Link href={`/sucatas/${item.slug}`} className="group block">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-fenix-surface">
+        {active === "all" ? (
+          <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+            {materials.map((item, i) => (
+              <Reveal key={item.id} delay={(i % 3) * 0.06}>
+                <button
+                  type="button"
+                  onClick={() => setActive(item.slug)}
+                  className="group block w-full text-left"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-fenix-surface">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      sizes="(max-width:640px) 100vw, (max-width:1280px) 45vw, 25vw"
+                    />
+                  </div>
+                  <h3 className="mt-4 font-display text-lg font-bold tracking-tight transition-colors group-hover:text-fenix-green">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-fenix-muted">
+                    {item.description}
+                  </p>
+                </button>
+              </Reveal>
+            ))}
+          </div>
+        ) : (
+          <div>
+            {activeCategory && (
+              <div className="mb-8">
+                <button
+                  type="button"
+                  onClick={() => setActive("all")}
+                  className="text-sm text-fenix-muted transition-colors hover:text-fenix-green"
+                >
+                  ← Todas as categorias
+                </button>
+                <div className="relative mt-4 aspect-[21/9] overflow-hidden rounded-md bg-fenix-surface sm:aspect-[16/7]">
                   <Image
-                    src={item.image}
-                    alt={item.title}
+                    src={activeCategory.image}
+                    alt={activeCategory.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                    sizes="(max-width:640px) 100vw, (max-width:1280px) 45vw, 25vw"
+                    className="object-cover"
+                    sizes="(max-width:1024px) 100vw, 70vw"
                   />
                 </div>
-                <h3 className="mt-4 font-display text-lg font-bold tracking-tight transition-colors group-hover:text-fenix-green">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-fenix-muted">
-                  {item.description}
+                <h2 className="mt-6 font-display text-2xl font-bold tracking-tight">
+                  {activeCategory.title}
+                </h2>
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-fenix-muted md:text-base">
+                  {activeCategory.description}
                 </p>
-              </Link>
-            </Reveal>
-          ))}
-          {filtered.length === 0 && (
-            <p className="text-fenix-muted sm:col-span-2 xl:col-span-3">
-              Em breve listamos aqui as sucatas disponíveis.
-            </p>
-          )}
-        </div>
+              </div>
+            )}
+
+            <ul className="divide-y divide-fenix-line border-y border-fenix-line">
+              {subitems.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    href={`/sucatas/${item.slug}`}
+                    className="flex items-center justify-between gap-4 py-4 text-left transition-colors hover:text-fenix-green"
+                  >
+                    <span>
+                      <span className="block font-display text-base font-semibold tracking-tight">
+                        {item.title}
+                      </span>
+                      <span className="mt-1 block text-sm text-fenix-muted">
+                        {item.description}
+                      </span>
+                    </span>
+                    <span className="shrink-0 text-fenix-green" aria-hidden>
+                      →
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {subitems.length === 0 && (
+              <p className="text-fenix-muted">
+                Em breve listamos aqui as sucatas desta categoria.
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );
