@@ -30,12 +30,12 @@ export const metadata: Metadata = {
   applicationName: SITE.brandName,
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
-      { url: "/favicon.png", sizes: "512x512", type: "image/png" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=3", sizes: "32x32", type: "image/x-icon" },
+      { url: "/favicon.png?v=3", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.svg?v=3", type: "image/svg+xml" },
     ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
+    shortcut: "/favicon.ico?v=3",
+    apple: "/apple-icon.png?v=3",
   },
   openGraph: {
     title: SITE.brandName,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: SITE.brandName,
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.png?v=3",
         width: 512,
         height: 512,
         alt: SITE.brandName,
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: SITE.brandName,
     description: SITE.tagline,
-    images: ["/og-image.png"],
+    images: ["/og-image.png?v=3"],
   },
 };
 

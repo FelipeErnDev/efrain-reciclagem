@@ -46,7 +46,7 @@ export function MaterialsCarousel() {
                     {materials.slice(page * 3, page * 3 + 3).map((item, i) => (
                       <Reveal key={item.id} delay={i * 0.08}>
                         <Link
-                          href={`/materiais/${item.slug}`}
+                          href="/sucatas"
                           className="group block"
                         >
                           <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-fenix-surface">
@@ -77,7 +77,7 @@ export function MaterialsCarousel() {
                 {materials.map((item) => (
                   <Link
                     key={item.id}
-                    href={`/materiais/${item.slug}`}
+                    href="/sucatas"
                     className="w-[85%] shrink-0 snap-center"
                   >
                     <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-fenix-surface">
